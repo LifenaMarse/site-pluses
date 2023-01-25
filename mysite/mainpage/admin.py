@@ -1,3 +1,8 @@
 from django.contrib import admin
+from mainpage.models import *
 
-# Register your models here.
+admin.site.register(Skill)
+admin.site.register(Geography)
+admin.site.register(Pie)
+admin.site.register(Demand)
+

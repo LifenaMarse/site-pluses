@@ -1,326 +1,44 @@
 {% extends 'mainpage/base.html' %}
 
 {% block content %}
-<h1 align="center">География</h1>
-<h2 align="center">Таблица зарплат по городам (150000 - 300000)</h2>
-<table border="1" class="dataframe">
-    <thead>
-    <tr style="text-align: right;">
-        <th>Города</th>
-        <th>Нур-Султан</th>
-        <th>Киев</th>
-        <th>Харьков</th>
-        <th>Минск</th>
-        <th>Сочи</th>
-        <th>Екатеринбург</th>
-        <th>Краснодар</th>
-        <th>Санкт-Петербург</th>
-        <th>Казань</th>
-        <th>Москва</th>
-        <th>Ульяновск</th>
-        <th>Иннополис</th>
-        <th>Самара</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th>ср.зарплаты</th>
-        <td>307093</td>
-        <td>279980</td>
-        <td>205980</td>
-        <td>190017</td>
-        <td>190000</td>
-        <td>189667</td>
-        <td>183385</td>
-        <td>171364</td>
-        <td>169210</td>
-        <td>164575</td>
-        <td>161380</td>
-        <td>160292</td>
-        <td>155692</td>
-    </tr>
-    </tbody>
-</table>
-<img src="../../static/mainpage/images/city1.png" alt="График зарплат по городам">
+<h1 align="center">{{title}}</h1>
 
+{% for ps in posts %}
+{% if ps.image %}
+  <img src="{{ps.image.url}}" alt="График зарплат по городам">
+{% endif %}
 
-<h2 align="center">Таблица зарплат по городам (100000 - 150000)</h2>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Города</th>
-      <th>Алматы</th>
-      <th>Волгоград</th>
-      <th>Ниж.Новгород</th>
-      <th>Жуковский</th>
-      <th>Томск</th>
-      <th>Новосибирск</th>
-      <th>Таганрог</th>
-      <th>Омск</th>
-      <th>Зеленоград</th>
-      <th>Воронеж</th>
-      <th>Челябинск</th>
-      <th>Кемерово</th>
-      <th>Калининград</th>
-      <th>Красноярск</th>
-      <th>Новокузнецк</th>
-      <th>Пермь</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>ср.зарплаты</th>
-      <td>147871</td>
-      <td>147256</td>
-      <td>137216</td>
-      <td>131786</td>
-      <td>127073</td>
-      <td>126098</td>
-      <td>124380</td>
-      <td>123212</td>
-      <td>123056</td>
-      <td>117990</td>
-      <td>117938</td>
-      <td>112857</td>
-      <td>112190</td>
-      <td>108357</td>
-      <td>106071</td>
-      <td>104176</td>
-    </tr>
-  </tbody>
-</table>
-<img src="../../static/mainpage/images/city2.png" alt="График зарплат по городам">
+<h2 align="center">Таблица зарплат по городам</h2>
+{% autoescape off %}
+  {{ps.content}}
+{% endautoescape %}
+{% endfor %}
 
-
-<h2 align="center">Таблица зарплат по городам (менее 100000)</h2>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Города</th>
-      <th>Ростов-на-Дону</th>
-      <th>Владивосток</th>
-      <th>Одесса</th>
-      <th>Тверь</th>
-      <th>Барнаул</th>
-      <th>Липецк</th>
-      <th>Ярославль</th>
-      <th>Уфа</th>
-      <th>Чебоксары</th>
-      <th>Рязань</th>
-      <th>Тула</th>
-      <th>Саратов</th>
-      <th>Пенза</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>ср.зарплаты</th>
-      <td>101000</td>
-      <td>97400</td>
-      <td>75800</td>
-      <td>75208</td>
-      <td>74469</td>
-      <td>73333</td>
-      <td>72045</td>
-      <td>68435</td>
-      <td>68000</td>
-      <td>67500</td>
-      <td>65556</td>
-      <td>62750</td>
-      <td>38214</td>
-    </tr>
-  </tbody>
-</table>
-<img src="../../static/mainpage/images/city3.png" alt="График зарплат по городам">
-
-
-<table>
-    <tr>
-        <td>
-            <img src="../../static/mainpage/images/pie.png" alt="Диаграмма доли вакансий по городам">
-        </td>
-        <td>
-            <h2 align="center">Таблица количества вакансий</h2>
-            <div>
-                <table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>№</th>
-      <th>Город</th>
-      <th>Количесиво вакансий</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>Москва</td>
-      <td>747</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Санкт-Петербург</td>
-      <td>287</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Новосибирск</td>
-      <td>259</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Киев</td>
-      <td>80</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Нижний Новгород</td>
-      <td>70</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Минск</td>
-      <td>66</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Ростов-на-Дону</td>
-      <td>62</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Томск</td>
-      <td>52</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Казань</td>
-      <td>49</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Пермь</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Екатеринбург</td>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Омск</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Уфа</td>
-      <td>23</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>Воронеж</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>Калининград</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>Краснодар</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>Иннополис</td>
-      <td>18</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>Тула</td>
-      <td>18</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>Красноярск</td>
-      <td>17</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>Одесса</td>
-      <td>17</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>Челябинск</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>Барнаул</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>Таганрог</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>Нур-Султан</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>Алматы</td>
-      <td>14</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>Самара</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>Тверь</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>Сочи</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>Ярославль</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>Харьков</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>Ульяновск</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>Саратов</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>33</th>
-      <td>Владивосток</td>
-      <td>10</td>
-    </tr>
-  </tbody>
-</table>
-            </div>
-        </td>
-    </tr>
-</table>
+<p>
+{% for p in post %}
+  <table>
+      <tr>
+          <td>
+            {% if p.image %}
+                <img src="{{p.image.url}}" alt="диаграмма">
+            {% endif %}
+          </td>
+          <td>
+              <h2 align="center">Таблица количества вакансий</h2>
+              <div>
+                {% autoescape off %}
+                {{p.content}}
+                {% endautoescape %}
+              </div>
+          </td>
+      </tr>
+  </table>
+{% endfor %}
+</p>
 
 {% endblock %}
+
+
+
+
+

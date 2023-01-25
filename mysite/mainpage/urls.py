@@ -6,7 +6,6 @@ urlpatterns = [
     path('geography/', geography, name='geography'),
     path('skills/', skills, name='skills'),
     path('latest/', latest, name='latest')
-
 ]
 
 

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
+from .models import *
 
 menu = [{'title': "Главная страница", 'url_name': 'home'},
         {'title': "Востребованность", 'url_name': 'demand'},
@@ -15,23 +16,23 @@ def returner(request):
 
 
 def demand(request):
-    return render(request, 'mainpage/demand.html', {'menu': menu, 'title': 'Востребованность'})
+    posts = Demand.objects.all()
+    return render(request, 'mainpage/demand.html', {'posts': posts, 'menu': menu, 'title': 'Востребованность'})
 
 
 def geography(request):
-    return render(request, 'mainpage/geography.html', {'menu': menu, 'title': 'География'})
+    posts = Geography.objects.all()
+    post = Pie.objects.all()
+    return render(request, 'mainpage/geography.html', {'posts': posts, 'post': post, 'menu': menu, 'title': 'География'})
 
 
 def skills(request):
-    return render(request, 'mainpage/skills.html', {'menu': menu, 'title': 'Навыки'})
+    posts = Skill.objects.all()
+    return render(request, 'mainpage/skills.html', {'posts': posts, 'menu': menu, 'title': 'Навыки'})
 
 
 def latest(request):
     return render(request, 'mainpage/latest.html', {'menu': menu, 'title': 'Последние вакансии'})
-
-
-def categories(request, professionid):
-    return HttpResponse(f"<h1>Статьи по категориям</h1><p>{professionid}</p>")
 
 
 def pageNotFound(request, exception):

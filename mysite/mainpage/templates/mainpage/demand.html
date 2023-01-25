@@ -1,172 +1,30 @@
 {% extends 'mainpage/base.html' %}
 
 {% block content %}
-<h1 align="center">Востребованность</h1>
-<table>
-    <tr>
-        <td>
-            <img src="../../static/mainpage/images/salary.png" alt="График зарплат C++">
-        </td>
-        <td>
-            <h2 align="center">Таблица зарплат C++</h2>
-            <div>
-                <table border="1" class="dataframe">
-                  <thead>
-                    <tr style="text-align: right;">
-                      <th>год</th>
-                      <th>2015</th>
-                      <th>2016</th>
-                      <th>2017</th>
-                      <th>2018</th>
-                      <th>2019</th>
-                      <th>2020</th>
-                      <th>2021</th>
-                      <th>2022</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th>ср. зарплата</th>
-                      <td>109023</td>
-                      <td>132918</td>
-                      <td>140672</td>
-                      <td>201454</td>
-                      <td>147886</td>
-                      <td>148060</td>
-                      <td>160922</td>
-                      <td>222802</td>
-                    </tr>
-                  </tbody>
-                </table>
-            </div>
-        </td>
-    </tr>
-</table>
+<h1 align="center">{{title}}</h1>
+{% for p in posts %}
+  <table>
+      <tr>
+          <td>
+            {% if p.image %}
+                <img src="{{p.image.url}}" alt="график">
+            {% endif %}
+          </td>
+          <td>
+              <h2 align="center">{{p.tableTitle}}</h2>
+              <div>
+                {% autoescape off %}
+                {{p.content}}
+                {% endautoescape %}
+              </div>
+          </td>
+      </tr>
+  </table>
+{% endfor %}
 
-
-<table>
-    <tr>
-        <td>
-            <img src="../../static/mainpage/images/salaryGeneral.png" alt="График зарплат">
-        </td>
-        <td>
-            <h2 align="center">Таблица зарплат</h2>
-            <div>
-                <table border="1" class="dataframe">
-                  <thead>
-                    <tr style="text-align: right;">
-                      <th>год</th>
-                      <th>2015</th>
-                      <th>2016</th>
-                      <th>2017</th>
-                      <th>2018</th>
-                      <th>2019</th>
-                      <th>2020</th>
-                      <th>2021</th>
-                      <th>2022</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th>ср. зарплата</th>
-                      <td>58377</td>
-                      <td>69493</td>
-                      <td>71521</td>
-                      <td>96267</td>
-                      <td>81406</td>
-                      <td>76771</td>
-                      <td>88265</td>
-                      <td>105119</td>
-                    </tr>
-                  </tbody>
-                </table>
-            </div>
-        </td>
-    </tr>
-</table>
-
-
-<table>
-    <tr>
-        <td>
-            <img src="../../static/mainpage/images/amount.png" alt="График количества вакансий C++">
-        </td>
-        <td>
-            <h2 align="center">Таблица количества вакансий C++</h2>
-            <div>
-                <table border="1" class="dataframe">
-                  <thead>
-                    <tr style="text-align: right;">
-                      <th>год</th>
-                      <th>2015</th>
-                      <th>2016</th>
-                      <th>2017</th>
-                      <th>2018</th>
-                      <th>2019</th>
-                      <th>2020</th>
-                      <th>2021</th>
-                      <th>2022</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th>количество вакансий</th>
-                      <td>59</td>
-                      <td>182</td>
-                      <td>272</td>
-                      <td>528</td>
-                      <td>451</td>
-                      <td>424</td>
-                      <td>295</td>
-                      <td>81</td>
-                    </tr>
-                  </tbody>
-                </table>
-            </div>
-        </td>
-    </tr>
-</table>
-
-
-<table>
-    <tr>
-        <td>
-            <img src="../../static/mainpage/images/amountGeneral.png" alt="График количества вакансий">
-        </td>
-        <td>
-            <h2 align="center">Таблица количества вакансий</h2>
-            <div>
-                <table border="1" class="dataframe">
-                  <thead>
-                    <tr style="text-align: right;">
-                      <th>год</th>
-                      <th>2015</th>
-                      <th>2016</th>
-                      <th>2017</th>
-                      <th>2018</th>
-                      <th>2019</th>
-                      <th>2020</th>
-                      <th>2021</th>
-                      <th>2022</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th>количество вакансий</th>
-                      <td>9358</td>
-                      <td>28916</td>
-                      <td>38682</td>
-                      <td>58478</td>
-                      <td>70559</td>
-                      <td>87249</td>
-                      <td>54116</td>
-                      <td>17030</td>
-                    </tr>
-                  </tbody>
-                </table>
-            </div>
-        </td>
-    </tr>
-</table>
 {% endblock %}
+
+
+
+
 
