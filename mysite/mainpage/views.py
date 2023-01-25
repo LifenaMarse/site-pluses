@@ -10,8 +10,10 @@ menu = [{'title': "Главная страница", 'url_name': 'home'},
 
 
 def returner(request):
+    posts = Main.objects.all()
     context = {'menu': menu,
-               'title': 'Главная страница'}
+               'posts': posts,
+               'title': 'C/C++ программист'}
     return render(request, 'mainpage/returner.html', context=context)
 
 

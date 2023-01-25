@@ -1,6 +1,16 @@
 from django.db import models
 
 
+class Main(models.Model):
+    title = models.CharField(max_length=255, blank=True)
+    subtitle = models.CharField(max_length=255, blank=True)
+    content = models.TextField(blank=True)
+    image = models.ImageField(upload_to="images/", blank=True)
+
+    def __str__(self):
+        return self.title
+
+
 class Skill(models.Model):
     title = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
